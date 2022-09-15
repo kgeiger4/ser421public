@@ -83,7 +83,7 @@ app.get('/blog/:file', function (req, res) {
                 return;
             }
 
-            var htmlContent = message.marked(rawContent);
+            var htmlContent = message.marked.parse(rawContent);
             var responseContent = message.mustacheTemplate(html, { postContent: htmlContent });
             res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
             res.end(responseContent);
